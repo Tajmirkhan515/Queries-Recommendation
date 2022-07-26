@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4//8/AAX+Av7czFnnAAAAAElFTkSuQmCC">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Search Engine</title>
+  <!-- Code -->
+<script>
+(function(h,e,a,t,m,p) {
+m=e.createElement(a);m.async=!0;m.src=t;
+p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
+})(window,document,'script','https://u.heatmap.it/log.js');
+</script>
+<!-- Code -->
+  <style>
+    .row {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: calc(var(--bs-gutter-y) * -1);
+      margin-right: calc(var(--bs-gutter-x) * -.5);
+    }
+
+    .card-img,
+    .card-img-top {
+      border-top-left-radius: calc(.25rem - 1px);
+      border-top-right-radius: calc(.25rem - 1px);
+      max-height: 250px;
+      min-height: 250px;
+    }
+
+    a {
+      text-decoration: underline;
+      color: #3c4043;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: .2px;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, .125);
+      border-radius: .25rem;
+      margin: 5px;
+    }
+
+    //this bellow for text data 
+    .padding-0 {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .box {
+      height: 500px;
+      overflow-y: auto;
+    }
+
+    h3 {
+      font-weight: normal;
+      font-size: 20px;
+      padding: 0px;
+      margin-right: 0;
+      margin-bottom: 0px;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 5px;
+      padding: 0em;
+      font-family: arial, sans-serif;
+      font-size: 14px;
+      max-width: 70%;
+    }
+
+    .pointer {
+      
+    }
+
+    .result-link {
+      font-size: 13px;
+      line-height: 1.3;
+      color: #202124;
+      font-style: normal;
+      margin-bottom: -10px;
+      margin-top: 0px;
+    }
+
+    .result-title {
+      line-height: 1.3;
+      margin-bottom: 0px;
+      margin-top: 5px;
+      padding-top: 0px;
+      color: #1a0dab;
+    }
+
+    .results-record {
+      margin-bottom: 40px;
+      margin-left: 60px;
+    }
+
+    ul.no-bullets {
+      list-style-type: none;
+      margin: 0;
+      padding: 5px
+    }
+
+    #image {
+      left: 0;
+      top: 0;
+    }
+
+    #playbtn {
+      z-index: 100;
+      position: relative;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      left: 50px;
+      top: -45px;
+    }
+
+    .padding-left-25 {
+      padding-left: 35px;
+    }
+
+    .videoP {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 15px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+
+  </script>
+  <div class="header">
+    <div class="row">
+      <div class="col col-3">
+        <a style="text-align: center;
+                vertical-align: middle; " href="#">Search Engine</a>
+      </div>
+      <div class="col col-9 padding-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+          <form class="form-inline my-2 my-lg-0" method="get" action="/search2">
+            <input style="width: 600px;" class="form-control input-lg" type="search" placeholder="Search"
+                            aria-label="Search" name="input_query" id="input_query">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+      </div>
+    </div>
+
+    <div></div>
+  </div>
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col col-3 padding-0">
+      <div class="card">
+        <div class="card-header">
+          Query Table
+        </div>
+        <div class="card-body box">
+          <ul id="parent-list">
+
+            {% for key in dect %}
+            <!--<a href='https://www.google.com/search?q={{ key }}'> -->
+            <li class="pointer">{{ key }} <a href='https://www.google.com/search?q={{key}}' target="_blank"><img  src="data:image/png;base64,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" alt="alternate text" width="15" height="15"/> </a> </li>
+            {% endfor %}
+
+            <li>With supporting text below as a natural</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Tabs Menu -->
+    <div class="col col-9 padding-0">
+      <div class="card">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+              aria-selected="false">Images</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+              aria-selected="false">Videos</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <ul id="Languages" class="no-bullets">
+
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row" id="mycontainer">
+
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <ul id="Languages1" class="no-bullets">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script>
+      var globalvariable="Hello";
+            var checkDownloadImage=false;
+            var checkDownloadVideo=false;
+
+            //this script used for click the button inside the index page
+            var a = "{{callRetrivalMethod}}"
+            if (a == "True") {
+              //alert("Global :"+globalvariable);
+                ftn();
+            } else {
+                alert("false");
+            }
+            function ftn() {
+                var target = "{{query}}"
+                //alert(target)
+                $.ajax({
+                    type: 'POST',
+                    url: '/create',
+                    data: {
+                        name: target,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewartoken]').val(),
+                    },
+                    success: function (data) {
+                        // display the newly friend to table.
+                        $("#Languages").empty();
+                        data = JSON.parse(data);
+                        var url = data['url']
+                        var title = data['title'];
+                        var des = data['des']
+                        var NodesString = "";
+                        for (i = 0; i < url.length; i++) {
+                            NodesString += '<li ><div class="results-record"><a href='+url[i]+' style="max-width:30px">' + url[i] + '</a><a href='+url[i]+'><h3 class="result-title">' + title[i] + '</h3></a><p >' + des[i] + '</p></div></li>'
+                        }
+                        $("#Languages").append(NodesString);
+                     
+                    },
+                   error: function(){
+                         alert("error from server side");
+                   },
+                });
+            }
+    </script>
+
+    <script>
+      // locate your element and add the Click Event Listener
+            document.getElementById("input_query").value = "{{query}}"
+
+            document.getElementById("parent-list").addEventListener("click", function (e) {
+                // e.target is our targetted element.
+                // try doing console.log(e.target.nodeName), it will result LI
+                if (e.target && e.target.nodeName == "LI") {
+                    //console.log(e.target.id + " was clicked");            
+                    var target = event.target || event.srcElement;
+                    //console.log(target.innerText);
+                    document.getElementById("input_query").value = target.innerText
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/create',
+                        data: {
+                            name: target.innerText,
+                            csrfmiddlewaretoken: $('input[name=csrfmiddlewartoken]').val(),
+                        },
+                        success: function (data) {
+                            // display the newly friend to table.
+                            $("#Languages").empty();
+                            data = JSON.parse(data);
+                            var url = data['url']
+                            var title = data['title'];
+                            var des = data['des']
+                            var NodesString = "";
+                            for (i = 0; i < url.length; i++) {
+                                  
+    
+                            NodesString += '<li ><div class="results-record"><a href='+url[i]+' style="max-width:30px">' + url[i] + '</a><a href='+url[i]+'><h3 class="result-title">' + title[i] + '</h3></a><p >' + des[i] + '</p></div></li>'
+
+                            }
+                            $("#Languages").append(NodesString);
+                          checkDownloadImage=false; // the click from query table, their we need to false the...
+                          checkDownloadVideo=false;  //images and video tabs
+                        },
+                   error: function(){
+                         alert("error from server side");
+                   },
+                        
+                    });
+                }
+            });
+    </script>
+
+    <script>
+      //Image download script
+            $('#profile-tab').on('click', function (e) {        
+                //alert(e.currentTarget.id);
+                if(!checkDownloadImage){
+                  $("#mycontainer").empty();
+                  imageTab(e);
+                }
+            });
+            function imageTab(e) {
+                e.preventDefault();
+                var target = "{{query}}"
+                //alert(target)
+                $.ajax({
+                    type: 'POST',
+                    url: '/imageTab',
+                    data: {
+                        name: target,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewartoken]').val(),
+                    },
+                    success: function (data) {
+                        // display the newly friend to table.
+                        data = JSON.parse(data);
+                        //alert(data['url']);
+                        var url = data['url']
+                        var title = data['title'];
+                        var domain = data['domain']
+                        var images = data['images']
+                        var NodesString = " "
+                        for (var i = 0; i <= 10; i++) {
+                            console.log(title[i]);
+                            console.log(url[i]);
+                            console.log(domain[i]);
+                            console.log(images[i]);
+                            NodesString += '<div class="col"><div class="card" style="width: 18rem;"><img class="card-img-top" src=' + images[i] + '><div class ="card-body"><p class ="card-text"><a href='+url[i]+'>' + title[i] + '</a> </br> <a href='+url[i]+'> <span>' + domain[i] + '</span></a></p></div></div></div>'
+                        }
+                        $("#mycontainer").append(NodesString);
+                        checkDownloadImage=true; // When dowload the images for first time, then we set this variable true
+                        //var fields = instance[0]["fields"];                         
+                    },
+                   error: function(){
+                         alert("error from server side");
+                   },
+                });
+            }
+    </script>
+
+    <script>
+      //Video download script
+            $('#contact-tab').on('click', function (e) {              
+                //alert(e.currentTarget.id);
+                if(!checkDownloadVideo){
+                  $("#Languages1").empty();
+                  videoTab(e);
+                }
+            });
+            function videoTab(e) {
+                e.preventDefault();
+                var target = "{{query}}"
+                //alert(target)
+                $.ajax({
+                    type: 'POST',
+                    url: '/videoTab',
+                    data: {
+                        name: target,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewartoken]').val(),
+                    },
+                    success: function (data) {
+                        // display the newly friend to table.
+                        //alert("responsed");
+                        data = JSON.parse(data);
+                        var title = data['title'];
+                        var url_vd = data['url'];
+                        var sourc_url = data['sourc_url'];
+                        var desc = data['desc'];
+                        var uploaDB = data['uploadeDate_By'];
+                        var images = data['images'];
+                        uploaDB = ['Feb 1, 2016 BBC', "Feb 1, 2016 BBC", "Feb 1, 2016 BBC"]
+                        var NodesString = "";
+                        for (i = 0; i < url_vd.length; i++) {
+                            NodesString += '<li><div class="video"><span><a href='+sourc_url[i]+' style="color:#202124; font-family: 14px Arial, sans-serif;  padding: 1px,0px,0px;">' + sourc_url[i] + '</a><h3 style="margin-top: 0px; margin-bottom: 6px"> <a href='+url_vd[i]+' style="color:#1A0DAB; font-family: Arial, sans-serif; font-size: 20px; margin:0px,0px,3px; margin-top: 0px; padding: 5px,0px,0px;" > ' + title[i] + '</a></h3></span><div class="video-data row"><div id="thumbnail" class="video-thumbnail col-1"><img id="image" src=' + images[i] + ' alt="video-thumbnail"><i id="playbtn" class="fa fa-play"></i></div><div class="video-desc col-11 videoP" style="max-width: 60%;"><p class="padding-left-25" style="margin-bottom: 0px; color:#70757A; font-family: 14px Arial, sans-serif;">' + desc[i] + '</p><span class="padding-left-25" style="color:#70757A; font-family: 14px Arial, sans-serif;">' + uploaDB[1] + '</span></div></div></li>'
+                        }
+                        $("#Languages1").append(NodesString);
+                        checkDownloadVideo=true; // when download the all videos, than set this variable true
+                    },
+                   error: function(){
+                         alert("error from server side");
+                   },
+                });
+            }
+    </script>
+</body>
+
+</html>

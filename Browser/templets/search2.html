@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4//8/AAX+Av7czFnnAAAAAElFTkSuQmCC">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+        </script>
+
+
+  <h2></h2>
+ 
+  <!--<h1>This is your query {{variable}}
+  {{variable}}
+  {{pageName}}
+  -->
+  <span id="checkClick">{{clickorNot}} </span>
+  <p >hello value of A </p>
+    <script> 
+      window.onload = function() {
+      if (window.jQuery) {  
+        // jQuery is loaded  
+        console.log("jQuery Loaded!");
+      let check = document.getElementById("checkClick");
+      checkValue = check.innerText;
+      console.log(typeof checkValue);
+
+      if(typeof checkValue == 'string'){
+        console.log("inside if");
+        document.getElementById("search2btn").click();
+        console.log("Form Submitted");
+
+        $('#searchForm').attr('action', 'search3');
+        document.getElementById("search2btn").click();
+        console.log("Form Submitted again");
+       }
+    } else {
+      console.log("Error");
+        // jQuery is not loaded
+        alert("Doesn't Work");
+    }
+}
+    
+
+  
+  </script>
+
+<form id="searchForm" class="example" method="get" action="/search2" style="margin:auto;max-width:500px">
+  <input type="text" value="{{variable}}" placeholder="search" name="tx1">
+  <button id="search2btn" type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+
+
+
+</body>
+</html> 
